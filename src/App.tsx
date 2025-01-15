@@ -8,6 +8,9 @@ import { getUser } from "./redux/features/auth/authSlice";
 import { useEffect } from "react";
 import Register from "./page/auth/Register";
 import Home from "./page/home/Home";
+import CreateCouse from "./page/create-couse/CreateCouse";
+import Layout from "./components/layout/Layout";
+import CreateDetail from "./page/create-couse/CreateDetail";
 
 const App = () => {
   const { user } = useSelector((state: RootState) => state.auth);
@@ -17,15 +20,42 @@ const App = () => {
     if (localStorage.getItem("token")) {
       dispatch(getUser());
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
       <ToastContainer />
       <Routes>
-        <Route path="/" element={user ? <Home /> : <Login />} />
+        <Route
+          path="/"
+          element={
+            user ? (
+              <Layout>
+                <Home />
+              </Layout>
+            ) : (
+              <Login />
+            )
+          }
+        />
         <Route path="/login" element={user ? <Home /> : <Login />} />
         <Route path="/register" element={user ? <Home /> : <Register />} />
+        <Route
+          path="/create-course"
+          element={user ? <CreateCouse /> : <Login />}
+        />
+        <Route
+          path="/create-detail"
+          element={
+            user ? (
+              <Layout>
+                <CreateDetail />
+              </Layout>
+            ) : (
+              <Login />
+            )
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

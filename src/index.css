@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.background-teal {
+  background-color: #49bbbd;
+}
+
+/* .background-teal:hover {
+  background-color: #379a9b;
+  color: #f0f0f0;
+} */
+
+
+.elliptical {
+  border-radius: 50% / 0 0 100% 100%;
+}

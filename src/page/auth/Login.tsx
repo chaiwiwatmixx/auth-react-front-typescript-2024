@@ -36,7 +36,7 @@ const Login = () => {
   const onSubmit: SubmitHandler<typeLogin> = (data) => {
     dispatch(login(data));
     dispatch(getUser());
-    navigate("/home");
+    navigate("/");
     reset();
   };
   return (
